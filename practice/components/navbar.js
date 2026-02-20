@@ -3,6 +3,7 @@
 import { auth } from "@/auth.js";
 import {SO} from "./sign-out";
 import Link from "next/link";
+//import { auth } from "@/auth"
 
 const navbar = async() => {
     const session = await auth();
@@ -16,18 +17,22 @@ const navbar = async() => {
 
                         <div className="flex-shrink-0 flex items-center">
                             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent cursor-pointer">
-                                MyPost
+                                BorrowBox
                             </span>
                         </div>
 
                         <div className="hidden md:flex space-x-8 items-center">
-                            <Link href="/writepost" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Write a Post</Link>
-                            <Link href="/post" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Posts</Link>
+                            <Link href="/writepost" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Lend an item</Link>
+                            <Link href="/post" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Marketplace</Link>
                             <Link href="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Dashboard</Link>
                             <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">{user?.name}</a>
-                            <a href="#" className="bg-red-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
-                                <SO/>
-                            </a>
+                            {session?   <a href="#" className="bg-red-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
+                                        <SO/>
+                                        </a>
+                            :
+                                <a href="/signin" className="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
+                                    <button>Sign in</button>
+                                </a>}
                         </div>
 
                         <div className="md:hidden flex items-center">

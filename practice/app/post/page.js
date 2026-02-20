@@ -3,6 +3,8 @@ import styles from "./page.module.css"
 import mongoose from "mongoose"
 import { posts } from "@/models/post"
 import { connectDB } from "@/lib/db"
+import ImageModal from "@/components/ImageModel"
+import Image from "next/image"
 
 const page = async () => {
     await connectDB();
@@ -40,10 +42,10 @@ const page = async () => {
                             {post.title}
                         </h3>
 
-                        <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                            {post.post}
-                        </p>
-
+                        <div className="text-gray-600 text-sm leading-relaxed mb-6">
+                            {post.post}<br></br><br></br>
+                            {post.image && <ImageModal src={post.image} alt="Unable to load image"></ImageModal>}
+                        </div>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <span className="ml-2 text-sm font-medium text-gray-700">{post.name}</span>

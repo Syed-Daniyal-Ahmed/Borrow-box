@@ -1,65 +1,75 @@
 import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center px-6 py-16">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/Logo.png"
+          width={180}
+          height={180}
+          alt="Logo"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+        <h1 className="text-4xl md:text-5xl font-bold mt-6 text-gray-800">
+          Borrow. Share. Repeat.
+        </h1>
+
+        <p className="mt-4 text-gray-600 max-w-xl">
+          A simple and smart platform where students can borrow and lend
+          books, gadgets, and essentials easily.
+        </p>
+
+        <div className="mt-6 flex gap-4">
+          <Link
+            href="/signin"
+            className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+          >
+            Browse Items
+          </Link>
+
+          {/* <Link
+            href="/post"
+            className="px-6 py-3 border border-black rounded-lg hover:bg-black hover:text-white transition"
+          >
+            List an Item
+          </Link> */}
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="grid md:grid-cols-3 gap-8 px-8 py-16 max-w-6xl mx-auto">
+        <div className="bg-white shadow-md rounded-xl p-6 text-center">
+          <h3 className="text-xl font-semibold mb-2">Safe Borrowing</h3>
+          <p className="text-gray-600">
+            Connect with verified users and borrow items securely.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="bg-white shadow-md rounded-xl p-6 text-center">
+          <h3 className="text-xl font-semibold mb-2">Save Money</h3>
+          <p className="text-gray-600">
+            Why buy when you can borrow? Reduce unnecessary expenses.
+          </p>
         </div>
-      </main>
+
+        <div className="bg-white shadow-md rounded-xl p-6 text-center">
+          <h3 className="text-xl font-semibold mb-2">Fast & Easy</h3>
+          <p className="text-gray-600">
+            Post or request items in seconds with a clean interface.
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-gray-500 border-t">
+        © 2026 BorrowHub. All rights reserved.
+      </footer>
     </div>
   );
 }
