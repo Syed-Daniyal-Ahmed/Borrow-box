@@ -13,7 +13,7 @@ export default function SignUp() {
           name: formData.get("Name"),
           email: formData.get("email"),
           password: formData.get("password"),
-          status: "Active",
+          status: formData.get("status"),
         });
         await newUser.save();
         redirect("/signin");
@@ -35,6 +35,16 @@ export default function SignUp() {
         <input name="password" type="password" />
       </label>
       <br></br>
+
+      <label>
+        Status
+        <select name="status">
+          <option value="Active">Active</option>
+          <option value="Non-Active">Non-Active</option>
+        </select>
+      </label>
+      <br />
+
       <button>Sign Up</button>
       <Link href="/signin">Have account Sign In here?</Link>
     </form>

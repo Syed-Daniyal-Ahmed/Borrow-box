@@ -69,7 +69,7 @@ const page = async () => {
                                             <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                                         </span>
                                         }
-                                        {getUserStatusByEmail(post.email)}
+                                        {getUserStatusByEmail(post.email)} User
                                     </span>
                                 </div>
                             </div>
