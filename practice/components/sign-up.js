@@ -13,6 +13,7 @@ export default function SignUp() {
           name: formData.get("Name"),
           email: formData.get("email"),
           password: formData.get("password"),
+          status: "Active",
         });
         await newUser.save();
         redirect("/signin");
