@@ -4,16 +4,19 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    max-height: 100vh;
+    max-height: 280vh;
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 200vh;
+    padding: 20px;
 }
 .container form {
+    margin-top: 0px;
+    margin-bottom: 120px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;

@@ -43,3 +43,8 @@ next-env.d.ts
 
 #public/uploads
 /public/uploads
+
+#Extras
+Laptop.png
+Toolkit.png
+practice/imporvments.txt
