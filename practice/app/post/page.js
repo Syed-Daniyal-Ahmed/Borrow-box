@@ -6,13 +6,24 @@ import { connectDB } from "@/lib/db"
 import ImageModal from "@/components/ImageModel"
 import Image from "next/image"
 import { User } from "@/models/user"
+import Link from "next/link"
+import Contact from "./contact"
+import Status from "./status"
 
 async function getUserStatusByEmail(em) {
     const user = await User.findOne({ email: em });
     const status = await user.status;
-    await console.log(status);
+    
     //await console.log("hgiue", user[0].status)
     return status;
+}
+
+async function getUserWNumber(em) {
+    const user = await User.findOne({ email: em });
+    const number = user?.wnumber;
+    const link = `https://wa.me/${number}`;
+    await console.log("hgiue", link)
+    return link;
 }
 
 
@@ -60,7 +71,7 @@ const page = async () => {
                                 <div className="flex items-center">
                                     <span className="ml-2 text-sm font-medium text-gray-700">{post.name}</span>
                                     <span className="ml-2 text-sm font-medium text-gray-700 flex items-center gap-2">
-                                        {getUserStatusByEmail(post.email)=="Active"?
+                                        {/* {getUserStatusByEmail(post.email)=="Active"?
                                         <span className="inline-flex items-center">
                                             <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
                                         </span>
@@ -69,8 +80,10 @@ const page = async () => {
                                             <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
                                         </span>
                                         }
-                                        {getUserStatusByEmail(post.email)} User
+                                        {getUserStatusByEmail(post.email)} User */}
+                                        <Status email={post.email}></Status>
                                     </span>
+                                    <Contact email={post.email}></Contact>
                                 </div>
                             </div>
                         </div>
