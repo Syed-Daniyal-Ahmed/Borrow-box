@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Navbar from "@/components/navbar"
 import styles from "./page.module.css"
 import mongoose from "mongoose"
@@ -9,6 +10,7 @@ import { User } from "@/models/user"
 import Link from "next/link"
 import Contact from "./contact"
 import Status from "./status"
+import Status2 from "./status2"
 
 async function getUserStatusByEmail(em) {
     const user = await User.findOne({ email: em });
@@ -83,6 +85,7 @@ const page = async () => {
                                         {getUserStatusByEmail(post.email)} User */}
                                         <Status email={post.email}></Status>
                                     </span>
+                                    <Status2 currentStatus={post.status} />
                                     <Contact email={post.email}></Contact>
                                 </div>
                             </div>

@@ -20,7 +20,19 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       default: "Non-Active"
-    }
+    },
+    wnumber:{
+      type: Number,
+      required: true,
+    },
+    upi_id: {
+      type: String,
+      required: true,
+    },
+    upi_name: {
+      type: String,
+      required: true,
+    },
   }
 );
 

@@ -8,10 +8,11 @@ import Link from "next/link";
 const navbar = async() => {
     const session = await auth();
     const user = session?.user;
-    console.log("Navbar user:", user);
+    //console.log("Navbar user:", user);
     return (
         <div>
-            <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50">
+            {/* <nav className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50"> */}
+            <nav>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16 items-center">
 

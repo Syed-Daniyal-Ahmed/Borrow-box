@@ -3,7 +3,7 @@ import Navbar from "@/components/navbar";
 import styles from './page.module.css';
 import { connectDB } from "@/lib/db";
 import { posts } from "@/models/post";
-import CopyButton from "./CopyButton";
+import Status from "./status";
 
 const page = async () => {
   "use server"
@@ -31,6 +31,15 @@ const page = async () => {
                   </h2>
                 </div>
 
+                <Status id={post._id.toString()} currentStatus={post.status || "Open"} />
+
+                {/* <select>
+                  <option value = "Open">Open</option>
+                  <option value = "Contacted">Contacted</option>
+                  <option value = "Shipped">Shipped</option>
+                  <option value = "Delivered">Delivered</option>
+                </select> */}
+
                 {/* Image
                 <img
                   src={post.qr}
@@ -40,7 +49,7 @@ const page = async () => {
 
                 <CopyButton url={post.qr} /> */}
 
-                
+
 
               </div>
             )

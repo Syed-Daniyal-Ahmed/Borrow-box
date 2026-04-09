@@ -11,20 +11,27 @@ const postSchema = new mongoose.Schema(
       required: true,
     },
     post: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     title: {
       type: String,
       required: true,
       trim: true
     },
-    image:{
-      type:String,
+    image: {
+      type: String,
+    },
+    qr: {
+      type: String
+    },
+    status: {
+      type: String,
+      default: "Open"
     }
-  },{
-    timestamps: true
-  }
+  }, {
+  timestamps: true
+}
 );
 
-export const posts = mongoose.models.posts||mongoose.model('posts', postSchema);
+export const posts = mongoose.models.posts || mongoose.model('posts', postSchema);

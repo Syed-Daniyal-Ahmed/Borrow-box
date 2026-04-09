@@ -14,6 +14,9 @@ export default function SignUp() {
           email: formData.get("email"),
           password: formData.get("password"),
           status: formData.get("status"),
+          upi_id: formData.get("upid"),
+          upi_name: formData.get("upiname"),
+          wnumber: formData.get("wnumber"),
         });
         await newUser.save();
         redirect("/signin");
@@ -28,6 +31,21 @@ export default function SignUp() {
       <label>
         Email
         <input name="email" type="email" />
+      </label>
+      <br></br>
+      <label>
+        UPI ID
+        <input name="upid" type="text" />
+      </label>
+      <br></br>
+      <label>
+        UPI Name
+        <input name="upiname" type="text" />
+      </label>
+      <br></br>
+      <label>
+        Whatsapp Number
+        <input name="wnumber" type="number" />
       </label>
       <br></br>
       <label>

@@ -1,8 +1,8 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 // Your own logic for dealing with plaintext password strings; be careful!
-import {saltAndHashPassword} from "@/utils/password"
-import {getUserFromDb} from "@/utils/dbUtils"
+import { saltAndHashPassword } from "@/utils/password"
+import { getUserFromDb } from "@/utils/dbUtils"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -15,19 +15,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         let user = null
- 
+
         // logic to salt and hash password
         const pwHash = saltAndHashPassword(credentials.password)
- 
+
         // logic to verify if the user exists
         user = await getUserFromDb(credentials.email, pwHash)
- 
+
         if (!user) {
           // No user found, so this is their first attempt to login
           // Optionally, this is also the place you could do a user registration
           throw new Error("Invalid credentials.")
         }
- 
+
         // return user object with their profile data
         return user
       },
@@ -43,5 +43,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return true;
     },
+
+
+    async session({ session, token, user }) {
+      // if using JWT (most common)
+      session.user.upi_id = token.upi_id;
+      session.user.upi_name = token.upi_name;
+      session.user.wnumber = token.wnumber;
+      session.user.status = token.status;
+      return session;
+    },
+
+    async jwt({ token, user }) {
+      // runs on login
+      if (user) {
+        token.upi_id = user.upi_id;
+        token.upi_name = user.upi_name;
+        token.wnumber = user.wnumber;
+        token.status = user.status;
+      }
+
+      return token;
+    }
   },
 })

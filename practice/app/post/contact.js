@@ -23,10 +23,12 @@ const Contact = ({ email }) => {
         if (res.ok) {
           setLink(data.link);
         } else {
-          console.error(data.error);
+          //console.error(data.error);
+          console.log("hehe");
         }
       } catch (err) {
-        console.error("Fetch error:", err);
+        //console.error("Fetch error:", err);
+        console.log("hehe");
       } finally {
         setLoading(false);
       }
