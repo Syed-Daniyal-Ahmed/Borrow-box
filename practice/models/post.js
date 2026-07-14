@@ -27,7 +27,35 @@ const postSchema = new mongoose.Schema(
     },
     status: {
       type: String,
+      enum: ["Open", "Contacted", "Shipped", "Delivered", "Confirmed"],
       default: "Open"
+    },
+    // Delivery System Fields
+    receiverEmail: {
+      type: String,
+      default: null,
+    },
+    deliveryStatus: {
+      type: String,
+      enum: ["pending", "confirmed", "failed"],
+      default: "pending",
+    },
+    paymentStatus: {
+      type: String,
+      enum: ["pending", "completed"],
+      default: "pending",
+    },
+    deliveryConfirmedAt: {
+      type: Date,
+      default: null,
+    },
+    shippedAt: {
+      type: Date,
+      default: null,
+    },
+    deliveryAttempts: {
+      type: Number,
+      default: 0,
     }
   }, {
   timestamps: true

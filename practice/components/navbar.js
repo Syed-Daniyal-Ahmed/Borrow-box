@@ -26,6 +26,7 @@ const navbar = async() => {
                             <Link href="/writepost" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Lend an item</Link>
                             <Link href="/post" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Marketplace</Link>
                             <Link href="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Dashboard</Link>
+                            <Link href="/my-deliveries" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">📦 Deliveries</Link>
                             <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">{user?.name}</a>
                             {session?   <a href="#" className="bg-red-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition-all shadow-md hover:shadow-lg">
                                         <SO/>

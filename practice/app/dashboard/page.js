@@ -4,6 +4,7 @@ import styles from './page.module.css';
 import { connectDB } from "@/lib/db";
 import { posts } from "@/models/post";
 import Status from "./status";
+import DeliveryControlPanel from "@/components/DeliveryControlPanel";
 
 const page = async () => {
   "use server"
@@ -32,6 +33,16 @@ const page = async () => {
                 </div>
 
                 <Status id={post._id.toString()} currentStatus={post.status || "Open"} />
+
+                {/* Delivery Control Panel for Lenders */}
+                <DeliveryControlPanel
+                  postId={post._id.toString()}
+                  currentStatus={post.status || "Open"}
+                  receiverEmail={post.receiverEmail}
+                  deliveryStatus={post.deliveryStatus}
+                  paymentStatus={post.paymentStatus}
+                  deliveryAttempts={post.deliveryAttempts || 0}
+                />
 
                 {/* <select>
                   <option value = "Open">Open</option>

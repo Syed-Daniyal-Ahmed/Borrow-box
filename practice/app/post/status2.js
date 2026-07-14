@@ -13,6 +13,8 @@ const Status = ({ currentStatus }) => {
         return "bg-yellow-500";
       case "Delivered":
         return "bg-green-500";
+      case "Confirmed":
+        return "bg-green-600";
       default:
         return "bg-gray-400";
     }
